@@ -1,8 +1,50 @@
 {
-  "name": "rh-ui",
+  "name": "@rongchuan/rh-ui",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "description": "React UI Components",
+  "author": "BeliefRC",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "type": "dist/index.d.ts",
+  "license": "MIT",
+  "keywords": [
+    "React",
+    "Component"
+  ],
+  "homepage": "https://github.com/BeliefRC/rh-ui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BeliefRC/rh-ui"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "react-scripts test",
+    "test:nowatch": "cross-env CI=true react-scripts test",
+    "clean": "rimraf ./dist",
+    "lint": "eslint --ext js,ts,jsx src --max-warnings 5",
+    "build": "npm run clean && npm run build-ts && npm run build-css",
+    "build-ts": "tsc -p tsconfig.build.json",
+    "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public",
+    "eject": "react-scripts eject",
+    "prepublish": "npm run build"
+  },
   "dependencies": {
+    "classnames": "^2.2.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@storybook/addon-actions": "^6.0.21",
+    "@storybook/addon-essentials": "^6.0.21",
+    "@storybook/addon-info": "^5.3.21",
+    "@storybook/addon-links": "^6.0.21",
+    "@storybook/node-logger": "^6.0.21",
+    "@storybook/preset-create-react-app": "^3.1.4",
+    "@storybook/react": "^6.0.21",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -12,23 +54,23 @@
     "@types/react": "^16.9.13",
     "@types/react-dom": "^16.9.0",
     "@types/storybook__addon-info": "^5.2.1",
-    "classnames": "^2.2.6",
+    "babel-loader": "^8.1.0",
+    "cross-env": "^7.0.2",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.7",
     "node-sass": "^4.14.1",
     "prettier": "^2.0.5",
     "react": "^16.13.1",
+    "react-docgen-typescript-loader": "^3.7.2",
     "react-dom": "^16.13.1",
+    "react-is": "^16.13.1",
     "react-scripts": "3.4.1",
+    "rimraf": "^3.0.2",
     "typescript": "~3.7.2"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -54,18 +96,5 @@
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
       "prettier --write"
     ]
-  },
-  "devDependencies": {
-    "@babel/core": "^7.11.6",
-    "@storybook/addon-actions": "^6.0.21",
-    "@storybook/addon-essentials": "^6.0.21",
-    "@storybook/addon-info": "^5.3.21",
-    "@storybook/addon-links": "^6.0.21",
-    "@storybook/node-logger": "^6.0.21",
-    "@storybook/preset-create-react-app": "^3.1.4",
-    "@storybook/react": "^6.0.21",
-    "babel-loader": "^8.1.0",
-    "react-docgen-typescript-loader": "^3.7.2",
-    "react-is": "^16.13.1"
   }
 }

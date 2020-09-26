@@ -4,11 +4,11 @@ import { action } from "@storybook/addon-actions";
 import Button, { ButtonProps } from "./button";
 
 export default {
-  title: "Example/Button",
+  title: "Button",
   component: Button,
 } as Meta;
 
-const Template: Story<ButtonProps> = (args: any) => (
+const Template: Story<ButtonProps> = (args: ButtonProps) => (
   <Button onClick={action("clicked")} {...args}>
     Button
   </Button>
