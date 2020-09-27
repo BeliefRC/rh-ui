@@ -6,6 +6,10 @@ import '../src/styles/index.scss'
 addDecorator(withInfo)
 addParameters({ info: { inline: false, header: false } })
 export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
+  actions: {
+    argTypesRegex: '^on[A-Z].*',
+    order: ['Introduction'],
+  },
   layout: 'centered',
+
 }
